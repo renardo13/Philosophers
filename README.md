@@ -14,3 +14,6 @@ It is not necessary to initialize differents mutexes for each elements that have
 ## Supervize
 
 I use my main program for supervize philo's death. Your main program is already a thread. I simply made a while loop to check all philos 1 by 1.
+
+## Makefile
+You can compile with the flag -fsanitize=thread to check if there is data races, you can add -g3 to have the line of the data race.
