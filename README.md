@@ -1,5 +1,5 @@
 # Philosophers
-Philosopher project 42
+Philosopher project 42 Mandatory part
 
 ## Strategies
 
