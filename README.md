@@ -1,6 +1,9 @@
 # Philosophers
 Philosopher project 42 Mandatory part
 
+```make```
+```./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]```
+
 ## Strategies
 The magic receipe is to make the philos odd OR even start the routine with 2000 microsecond late. In addition you have to separeted the eat routine, if the philo is even you can make him take the right fork first and the left in second. If the philo is odd you can make him take the left first and the right after for exemple. You can also make the countrary.
 
