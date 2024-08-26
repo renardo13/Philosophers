@@ -6,7 +6,7 @@
 /*   By: melmarti <melmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:02:55 by melmarti          #+#    #+#             */
-/*   Updated: 2024/03/27 16:54:36 by melmarti         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:15:27 by melmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	*ft_routine(void *arg)
 	return (NULL);
 }
 
-void	ft_philo(t_ph *ph)
+void	ft_philo(t_ph *ph, t_data *data)
 {
 	int	i;
 
@@ -60,7 +60,7 @@ void	ft_philo(t_ph *ph)
 	{
 		if (pthread_create(&ph[i].ph_thread_id, NULL, &ft_routine, &ph[i]) != 0)
 		{
-			ft_error(3);
+			ft_error(3, data);
 			return ;
 		}
 		i++;
@@ -87,14 +87,16 @@ int	main(int ac, char **av)
 	{
 		ph = malloc(sizeof(t_ph) * (atoi(av[1])));
 		if (!ph)
-			return (ft_error(2));
+			return (ft_error(2, &data));
+		data.ph = ph;
+		
 		if (ft_data_init(av, &data) == -1)
 			return (-1);
 		ft_init_philo(ph, &data, av);
-		ft_philo(ph);
+		ft_philo(ph, &data);
 		ft_kill_phil(&data, ph);
 	}
 	else
-		ft_error(1);
+		ft_error(1, NULL);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: melmarti <melmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 19:16:08 by melmarti          #+#    #+#             */
-/*   Updated: 2024/03/27 15:51:31 by melmarti         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:45:50 by melmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_data
 	long			all_ready;
 	long			dead_flag;
 	struct timeval	start_time;
+	struct s_ph		*ph;
 	pthread_mutex_t	mutex;
 }					t_data;
 // set at 1 if they have to eat a particular number of meal
@@ -80,6 +81,8 @@ void				ft_write_status(t_ph *ph, char *s);
 void				ft_print_die(t_ph *ph);
 void				ft_kill_phil(t_data *data, t_ph *ph);
 void				ft_meal_counter(long *flag, pthread_mutex_t *mutex);
+int					ft_is_digit(char c);
+int					ft_strcmp(char *str, char *s);
 
 // routine
 
@@ -94,6 +97,6 @@ void				ft_enough_meal(t_ph *ph);
 int					ft_atoi(const char *s);
 char				*ft_itoa(int n);
 int					ft_strcmp(char *str, char *s);
-int					ft_error(int code);
+int					ft_error(int code, t_data *data);
 
 #endif

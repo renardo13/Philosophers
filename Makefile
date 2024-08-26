@@ -1,10 +1,11 @@
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3 
 SRC = main.c \
 init.c \
 getter_setter.c \
 utils.c \
+utils_2.c \
 meal.c \
 ft_supervise.c \
 ft_atoi.c \
