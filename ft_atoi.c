@@ -6,60 +6,11 @@
 /*   By: melmarti <melmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 12:48:01 by melmarti          #+#    #+#             */
-/*   Updated: 2024/03/27 16:41:08 by melmarti         ###   ########.fr       */
+/*   Updated: 2024/08/28 14:16:57 by melmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-static char	*ft_putnbr(char *s, int n, int counter)
-{
-	long int	nb;
-	int			i;
-
-	i = 0;
-	nb = n;
-	s[counter] = '\0';
-	if (nb < 0)
-	{
-		nb *= -1;
-		s[0] = '-';
-		i = 1;
-	}
-	while (counter-- > i)
-	{
-		s[counter] = (nb % 10) + 48;
-		nb /= 10;
-	}
-	return (s);
-}
-
-static int	ft_count_nb(int n)
-{
-	int	counter;
-
-	counter = 0;
-	if (n <= 0)
-		counter++;
-	while (n)
-	{
-		n /= 10;
-		counter++;
-	}
-	return (counter);
-}
-
-char	*ft_itoa(int n)
-{
-	size_t	counter;
-	char	*s;
-
-	counter = ft_count_nb(n);
-	s = malloc(sizeof(char) * counter + 1);
-	if (!s)
-		return (NULL);
-	return (ft_putnbr(s, n, counter));
-}
 
 int	ft_atoi(const char *s)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_supervise.c                                     :+:      :+:    :+:   */
+/*   supervise.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmarti <melmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 19:15:33 by melmarti          #+#    #+#             */
-/*   Updated: 2024/03/27 16:48:01 by melmarti         ###   ########.fr       */
+/*   Updated: 2024/08/28 13:16:16 by melmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_supervise(t_ph *ph, int ph_nb)
 {
 	int	i;
 
-	while (1)
+	while (!ft_enough_meal(ph))
 	{
 		i = -1;
 		while (++i < ph_nb)
@@ -25,14 +25,11 @@ void	ft_supervise(t_ph *ph, int ph_nb)
 						&ph->data->mutex)) == ft_getter(&ph[i].data->t_die,
 					&ph->data->mutex))
 			{
-				if (ft_getter(&ph->meal_flag, &ph->ph_mutex))
-				{
-					if (ft_getter(&ph->data->general_meal_counter,
-							&ph->data->mutex) == ft_getter(&ph[i].meal_counter,
-							&ph->ph_mutex) * ph_nb)
-						return ;
-				}
-				ft_print_die(ph);
+				ft_setter(1, &ph->data->dead_flag, &ph->data->mutex);
+				pthread_mutex_lock(&ph->data->mutex);
+				printf(RED "%ld %d died 💀\n" RESET,
+					ft_gettime_from(ph->data->start_time), ph->id);
+				pthread_mutex_unlock(&ph->data->mutex);
 				return ;
 			}
 		}

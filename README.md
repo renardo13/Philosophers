@@ -7,7 +7,7 @@ The magic receipe is to make the philos odd OR even start the routine with 2000 
 A good organization of your code is the key for philo. 
 I made 2 structures : one relative to the informations of the philos themselves, shared between one philo and the main, like last_meal, ph->id, etc. and one named "data" that countain all the ressources that will be shared between them (+ the supervizor) like printf, the time, the dead_flag, etc.).
 
-In my code I use usleep instead of using my sleep fonction because the perfomances was too low. But it can higher the time taked by the program to go out when a philo dies when the time to eat and the time to sleep are very long.
+In my code I use ft_usleep instead of using my sleep fonction because the perfomances was too low. But it can higher the time taked by the program to go out when a philo dies when the time to eat and the time to sleep are very long.
 
 ## Mutexes 
 It is not necessary to initialize differents mutexes for each elements that have to be a shared ressources. You can make 2 mutexes, one for a fork, and one for all the rest (the print, all the flags, etc.). The other fork can just be a mutexe pointer to the other fork.

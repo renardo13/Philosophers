@@ -1,15 +1,17 @@
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 
+CFLAGS = -Wall -Wextra -Werror 
 SRC = main.c \
 init.c \
 getter_setter.c \
 utils.c \
-utils_2.c \
-meal.c \
-ft_supervise.c \
+libft_utils.c \
+time_utils.c \
+manage_threads.c \
+supervise.c \
 ft_atoi.c \
 error_type.c \
+routine.c \
 
 OBJ = $(SRC:.c=.o)
 
