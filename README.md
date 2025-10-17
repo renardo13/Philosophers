@@ -1,6 +1,6 @@
-### Project about Multithreading in C
+## Project about Multithreading in C
 
-The Philosophers project is about reproducing the classic Dining Philosophers Problem, focusing on concurrency, synchronization, and resource management.
-Each philosopher runs in its own thread, sharing forks protected by mutexes to avoid deadlocks and data races.
+The Philosophers project is about reproducing the classic Dining Philosophers Problem, focusing on __concurrency, synchronization, and resource management__.
+Each philosopher runs in its own __thread__, sharing forks protected by __mutexes__ to avoid __deadlocks__ and __data races__.
 
-In the bonus part, philosophers become separate processes communicating via semaphores, exploring inter-process synchronization.
+In the bonus part, philosophers become separate __processes__ communicating via __semaphores__, exploring __inter-process synchronization__.
